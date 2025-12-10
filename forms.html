@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Forms</title>
+</head>
+<body>
+    <!--
+    <form id="myform">
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" placeholder="Enter The Name">
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <button type="submit" id="btn">Submit</button>
+    </form>
+    <script>
+        document.getElementById('myform').addEventListener('submit',(e)=>{
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            console.log('Name : ${name}');
+            console.log('Email : ${email}');
+        })
+    </script>
+</body>
+</html>
+-->
+
+
+
+
+ <center>
+
+  <form id="myForm">
+    <h3>Register</h3>
+
+    <label>Username:</label>
+    <input type="text" id="username">
+    <p class="error" id="userError"></p>
+
+    <label>Email:</label>
+    <input type="email" id="email">
+    <p class="error" id="emailError"></p>
+
+    <label>Password:</label>
+    <input type="password" id="password">
+    <p class="error" id="passError"></p>
+
+    <button type="submit">Submit</button>
+
+</form> 
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // stop form from submitting
+
+    // Get values
+    let username = document.getElementById("username").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    // Error fields
+    let userError = document.getElementById("userError");
+    let emailError = document.getElementById("emailError");
+    let passError = document.getElementById("passError");
+
+    // Reset errors
+    userError.innerText = "";
+    emailError.innerText = "";
+    passError.innerText = "";
+
+    let valid = true;
+
+    // Username validation
+    if (username === "") {
+        userError.innerText = "Username is required.";
+        valid = false;
+    }
+
+    // Email validation
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (email === "") {
+        emailError.innerText = "Email is required.";
+        valid = false;
+    } else if (!email.match(emailPattern)) {
+        emailError.innerText = "Enter a valid email.";
+        valid = false;
+    }
+
+    // Password validation
+    if (password.length < 6) {
+        passError.innerText = "Password must be at least 6 characters.";
+        valid = false;
+    }
+
+    // If valid, show success
+    if (valid) {
+        alert("Form submitted successfully!");
+        this.reset(); // Clear form fields
+    }
+});
+</script>
+</center>
+</body>
+</html>
+
