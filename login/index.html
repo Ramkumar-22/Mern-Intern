@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login / Register Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+  <div id="view-login" class="view active">
+    <h2>Log in</h2>
+    <p class="subtitle">Welcome back!</p>
+    <label for="login-username">Username</label>
+    <input id="login-username" type="text" placeholder="Enter username">
+
+    <label for="login-password">Password</label>
+    <input id="login-password" type="password" placeholder="Enter password">
+
+    <button class="link-btn" onclick="showView('forgot')">
+      Forgot password?
+    </button>
+
+    <button class="btn btn-primary" onclick="login()">Log in</button>
+
+    <p class="small-text">
+      Don’t have an account?
+      <span onclick="showView('register')">Sign up now!</span>
+    </p>
+  </div>
+
+  <!-- REGISTER VIEW -->
+  <div id="view-register" class="view">
+    <h2>Register</h2>
+    <p class="subtitle">Create a new account</p>
+
+    <label for="reg-username">Username</label>
+    <input id="reg-username" type="text" placeholder="Choose a username">
+
+    <label for="reg-password">Password</label>
+    <input id="reg-password" type="password" placeholder="Choose a password">
+
+    <label for="reg-password2">Confirm password</label>
+    <input id="reg-password2" type="password" placeholder="Re-enter password">
+
+    <button class="btn btn-primary" onclick="registerUser()">Sign up</button>
+
+    <p class="small-text">
+      Already have an account?
+      <span onclick="showView('login')">Back to login</span>
+    </p>
+  </div>
+
+  <div id="view-forgot" class="view">
+    <h2>Forgot password</h2>
+    <p class="subtitle">Enter your username to reset.</p>
+
+    <label for="forgot-username">Username</label>
+    <input id="forgot-username" type="text" placeholder="Your username">
+
+    <button class="btn btn-primary" onclick="forgotPassword()">
+      Reset password
+    </button>
+
+    <p class="small-text">
+      Remembered it?
+      <span onclick="showView('login')">Back to login</span>
+    </p>
+  </div>
+
+  <p id="message"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
